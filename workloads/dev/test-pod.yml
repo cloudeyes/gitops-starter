@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   name: test-pod
   namespace: dev
+  annotations:
+    flux.weave.works/automated: "true"
 spec:
   containers:
   - name: test-pod
