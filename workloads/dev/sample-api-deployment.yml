@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: dev
+  name: sample-api
+  labels:
+    app: service
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  ports:
+    - port: 5678
+  selector:
+    app: service
+    tier: sample-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: dev
+  name: sample-api
+  labels:
+    app: service
+  annotations:
+    fluxcd.io/automated: "true"
+spec:
+  selector:
+    matchLabels:
+      app: service
+      tier: sample-api
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: service
+        tier: sample-api
+    spec:
+      containers:
+      - image: cloudeyes/sample-service:latest
+        imagePullPolicy: "Always"
+        name: sample-api
+        env:
+        - name: ENV
+          value: PROD
+        - name: DB_HOST
+          value: pgsql.sample.svc
+        - name: DB_TYPE
+          value: postgresql
+        - name: DB_NAME
+          value: sample
+        - name: DB_USER
+          value: sample
+        - name: DB_PASS
+          value: sample
+        ports:
+        - containerPort: 5678
+          name: sample-api
