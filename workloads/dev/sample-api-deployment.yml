@@ -44,8 +44,8 @@ spec:
         - name: ENV
           value: PROD
         - name: DB_HOST
-          value: 10.152.183.18
-          #value: pgsql
+          #value: 10.152.183.18
+          value: pgsql.dev.svc.cluster.local
         - name: DB_TYPE
           value: postgresql
         - name: DB_NAME
