@@ -5,8 +5,6 @@ metadata:
   name: sample-api
   labels:
     app: service
-  annotations:
-    fluxcd.io/automated: "true"
 spec:
   ports:
     - port: 5678
