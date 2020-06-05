@@ -23,7 +23,6 @@ metadata:
   labels:
     app: service
 spec:
-  storageClassName: microk8s-hostpath
   accessModes:
     - ReadWriteOnce
   resources:
