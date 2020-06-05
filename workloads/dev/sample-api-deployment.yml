@@ -44,7 +44,7 @@ spec:
         - name: ENV
           value: PROD
         - name: DB_HOST
-          value: pgsql.sample.svc
+          value: pgsql
         - name: DB_TYPE
           value: postgresql
         - name: DB_NAME
