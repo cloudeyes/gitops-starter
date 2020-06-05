@@ -6,8 +6,6 @@ metadata:
   labels:
     app: service
     type: local
-  annotations:
-    fluxcd.io/automated: "true"
 spec:
   capacity:
     storage: 500Mi
